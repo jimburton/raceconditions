@@ -7,15 +7,10 @@ public class CheckThenAct {
 
     public void changeNumber() {
         if (number == 0) {
-            try {
-                Thread.sleep(5);//simulate an iterruption
-            } catch (InterruptedException e) {
-
-            }
+            Utils.simulateInterrupt(5);
             System.out.println(Thread.currentThread().getName() + " | Changed");
             number = -1;
         } else {
-
             System.out.println(Thread.currentThread().getName() + " | Not changed");
         }
     }

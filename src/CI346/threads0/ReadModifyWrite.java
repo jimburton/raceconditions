@@ -7,9 +7,7 @@ public class ReadModifyWrite {
 
     public void incrementNumber() {
         int n = number;
-        try {
-            Thread.sleep(1);//simulate interruption
-        } catch (InterruptedException e) {}
+        Utils.simulateInterrupt(1);
         number = n+1;
     }
 
