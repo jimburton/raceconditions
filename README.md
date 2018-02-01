@@ -53,8 +53,8 @@ The next type of race condition is a variation on the first. It can occur whenev
 
 The problems arise when two interleaved threads overwrite each other's modifications. Run 
 the `main` method in the class `ReadModifyWrite`. Note that you need to wait 5 seconds for the method to complete,
-and the result isn't what we hoped for. Again, we drew attention to the lack of thread-safety
-by simulating an interruption in the critical section, but there is no guarantee that it wouldn't
-happen even without that.
- 
- `AtomicInteger` has a method that will solve the problem -- which one is it?  
+and the result isn't what we hoped for. What is the critical section in this code?
+
+Again, we drew attention to the lack of thread-safety by simulating an interruption in the critical section, but 
+there is no guarantee that it wouldn't happen even without that. `AtomicInteger` has a method that will solve the 
+problem -- which one is it?  
