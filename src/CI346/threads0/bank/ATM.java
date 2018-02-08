@@ -1,20 +1,41 @@
 package CI346.threads0.bank;
 
-public class ThreadExercise extends Thread implements Runnable {
+import CI346.threads0.Utils;
+
+public class ATM extends Thread implements Runnable {
 
     private Person person;
 
-    public ThreadExercise(Person p) {
+    public static enum PEOPLE {
+        P1 ("person 1"),
+        P2 ("person 2"),
+        P3 ("person 3");
+        private static PEOPLE[] vals = values();
+
+        private final String name;
+
+        PEOPLE(String s) {
+            this.name = s;
+        }
+
+        public PEOPLE next(){
+            return vals[(this.ordinal()+1) % vals.length];
+        }
+    }
+
+    public ATM(Person p) {
         this.person = p;
     }
 
     public static void main(String[] args) {
 
-        ThreadExercise ts1 = new ThreadExercise(new Person("person 1"));
+        ATM ts1 = new ATM(new Person(PEOPLE.P1));
         ts1.start();
-        ThreadExercise ts2 = new ThreadExercise(new Person("person 2"));
+
+        ATM ts2 = new ATM(new Person(PEOPLE.P2));
         ts2.start();
-        ThreadExercise ts3 = new ThreadExercise(new Person("person 3"));
+
+        ATM ts3 = new ATM(new Person(PEOPLE.P3));
         ts3.start();
 
     }
@@ -28,7 +49,7 @@ public class ThreadExercise extends Thread implements Runnable {
                 try {
                     Thread.sleep(200);
                 } catch (InterruptedException ex) {
-                    System.out.println(ThreadExercise.class.getName()+" interrupted!");
+                    System.out.println(ATM.class.getName()+" interrupted!");
                 }
                 if (acc.getBal() < 0) {
                     System.out.println("account is overdrawn!");

@@ -2,21 +2,22 @@ package CI346.threads0.bank;
 
 public class Person {
     private String name;
+    private ATM.PEOPLE p;
 
-    public Person(String name) {
-        this.name = name;
+    public Person (ATM.PEOPLE p) {
+        this.p = p;
     }
 
     public String getName() {
-        return name;
+        return p.name();
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public ATM.PEOPLE next() {
+        return p.next();
     }
 
     @Override
     public String toString() {
-        return name;
+        return p.name();
     }
 }
