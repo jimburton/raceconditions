@@ -4,9 +4,10 @@ import CI346.threads0.Utils;
 
 public class BankAccount {
     public static BankAccount account;
-    private static int balance = 1000;
-    private static Person person;
+    public static int balance = 1000;
+    public static Person person;
 
+    //Singleton constructor
     private BankAccount() {
     }
 

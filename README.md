@@ -57,4 +57,10 @@ and the result isn't what we hoped for. What is the critical section in this cod
 
 Again, we drew attention to the lack of thread-safety by simulating an interruption in the critical section, but 
 there is no guarantee that it wouldn't happen even without that. `AtomicInteger` has a method that will solve the 
-problem -- which one is it?  
+problem -- which one is it?
+
+## Bank accounts and ATMs
+
+Have a look at the code in the `bank` package and run the `main` method in the `ATM` class. See if you can work out how 
+to make it thread safe. Remember that using `synchronized` to lock a method may or may not prevent all access
+to the underlying variables (e.g. the balance in an account).
