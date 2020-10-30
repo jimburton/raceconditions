@@ -1,4 +1,4 @@
-package CI346.threads0.bank;
+package CI646.threads0.bank;
 
 public class ThreadExercise extends Thread implements Runnable {
 

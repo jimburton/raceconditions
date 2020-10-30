@@ -1,4 +1,4 @@
-package CI346.threads0;
+package CI646.threads0;
 
 public class Utils {
 
