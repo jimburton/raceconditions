@@ -1,6 +1,6 @@
 # Race conditions
 
-Lab session for CI346, Semester 2.
+Lab session for CI646.
 
 There are two main types of race condition that are commonly encountered
 when creating a multi-threaded application. These are *Check-Then-Act* and 

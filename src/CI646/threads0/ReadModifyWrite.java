@@ -1,4 +1,4 @@
-package CI346.threads0;
+package CI646.threads0;
 
 // Example adapted from https://www.javacodegeeks.com
 

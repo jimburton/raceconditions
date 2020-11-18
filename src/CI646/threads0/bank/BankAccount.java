@@ -1,6 +1,6 @@
-package CI346.threads0.bank;
+package CI646.threads0.bank;
 
-import CI346.threads0.Utils;
+import CI646.threads0.Utils;
 
 public class BankAccount {
     public static BankAccount account;

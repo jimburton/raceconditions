@@ -1,6 +1,4 @@
-package CI346.threads0.bank;
-
-import CI346.threads0.Utils;
+package CI646.threads0.bank;
 
 public class ATM extends Thread implements Runnable {
 
