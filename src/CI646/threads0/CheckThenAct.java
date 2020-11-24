@@ -8,6 +8,9 @@ public class CheckThenAct {
     private AtomicInteger number = new AtomicInteger(0);
 
     public synchronized void changeNumber() {
+        number.compareAndSet(0, -1);
+        /*
+        or...
         number.getAndUpdate(i -> { if (i==0) {
             Utils.simulateInterrupt(5);
             System.out.println(Thread.currentThread().getName() + " | Changed");
@@ -17,6 +20,7 @@ public class CheckThenAct {
         }
         return i;
         });
+        */
     }
 
     public static void main(String[] args) {
