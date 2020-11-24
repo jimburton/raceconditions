@@ -2,17 +2,21 @@ package CI646.threads0;
 
 // Example adapted from https://www.javacodegeeks.com
 
-public class CheckThenAct {
-    private int number;
+import java.util.concurrent.atomic.AtomicInteger;
 
-    public void changeNumber() {
-        if (number == 0) {
+public class CheckThenAct {
+    private AtomicInteger number = new AtomicInteger(0);
+
+    public synchronized void changeNumber() {
+        number.getAndUpdate(i -> { if (i==0) {
             Utils.simulateInterrupt(5);
             System.out.println(Thread.currentThread().getName() + " | Changed");
-            number = -1;
+            return -1;
         } else {
             System.out.println(Thread.currentThread().getName() + " | Not changed");
         }
+        return i;
+        });
     }
 
     public static void main(String[] args) {
