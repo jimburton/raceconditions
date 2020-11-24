@@ -2,17 +2,17 @@ package CI646.threads0;
 
 // Example adapted from https://www.javacodegeeks.com
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class ReadModifyWrite {
-    private int number;
+    private AtomicInteger number = new AtomicInteger(0);
 
     public void incrementNumber() {
-        int n = number;
-        Utils.simulateInterrupt(1);
-        number = n+1;
+        number.getAndIncrement();
     }
 
     public int getNumber() {
-        return this.number;
+        return this.number.get();
     }
 
     public static void main(String[] args) throws InterruptedException {
