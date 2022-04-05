@@ -24,8 +24,11 @@ we should order some more from our supplier. A scenario where this could go wron
 
 We've overspent our Widget budget and the shop is going bust :(
 
-The class `CheckThenAct` is meant to manage the value of a number but it only makes one change, 
-setting the number to -1 if its value is zero. Logically, the number should only need to be changed 
+Read the code of the class `CheckThenAct`. The `changeNumber` method 
+is meant to manage the value of a number and makes exactly one change, 
+setting the number to -1 if its value is zero. 
+
+Logically, the number should only need to be changed 
 once. Run the `main` method in `CheckThenAct` and see whether this is the case.
 
 Note that we could be very unlikely to enter the race condition here apart from the fact that we
@@ -34,7 +37,7 @@ without simulating an interruption -- the important thing is we are *not guarant
 condition. 
 
 Use the `synchronized` keyword to make the `changeNumber` method thread-safe and fix the race 
-condition.
+condition. Confirm that the value of the counter is changed exactly once.
 
 We should be as conservative as possible when choosing what to lock; it could be quite wasteful to 
 lock an entire method. Read about the Java class 
@@ -56,11 +59,14 @@ the `main` method in the class `ReadModifyWrite`. Note that you need to wait 5 s
 and the result isn't what we hoped for. What is the critical section in this code?
 
 Again, we drew attention to the lack of thread-safety by simulating an interruption in the critical section, but 
-there is no guarantee that it wouldn't happen even without that. `AtomicInteger` has a method that will solve the 
-problem -- which one is it?
+there is no guarantee that it wouldn't happen even without that. 
+[https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html](`AtomicInteger`) has a 
+method that will solve the problem -- which one is it?
 
 ## Bank accounts and ATMs
 
 Have a look at the code in the `bank` package and run the `main` method in the `ATM` class. See if you can work out how 
 to make it thread safe. Remember that using `synchronized` to lock a method may or may not prevent all access
 to the underlying variables (e.g. the balance in an account).
+
+Compare your work to that in the `solutions` branch.
